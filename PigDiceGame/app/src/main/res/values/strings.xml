@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PigDiceGame</string>
+    <string name="action_settings">Settings</string>
+    <string name="your_score">Your score:</string>
+    <string name="hold">Hold</string>
+    <string name="reset">Reset</string>
+    <string name="computer_score">Computer Score:</string>
+    <string name="computerScore">0</string>
+</resources>
