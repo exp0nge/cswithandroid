@@ -135,17 +135,21 @@ public class PigActivity extends AppCompatActivity {
     }
 
     public void holdScore(View view) {
-        Toast.makeText(getApplicationContext(), "Computer's turn", Toast.LENGTH_SHORT).show();
         userOverallScore += userTurnScore;
         userScoreTextView.setText(Integer.toString(userOverallScore));
-        new Thread(new ComputerAI()).start();
+        userTurnScore = 0;
+        if (userOverallScore >= 100) {
+            Toast.makeText(getApplicationContext(), "You win!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Computer's turn", Toast.LENGTH_SHORT).show();
+            new Thread(new ComputerAI()).start();
+        }
     }
 
     class ComputerAI implements Runnable {
 
         @Override
         public void run() {
-            Log.d("AIX", "AI running");
             diceFaceImageView.setOnClickListener(null);
             holdButton.setOnClickListener(null);
             resetButton.setOnClickListener(null);
@@ -187,7 +191,12 @@ public class PigActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(getApplicationContext(), "Your turn", Toast.LENGTH_SHORT).show();
+                    if (computerOverallScore >= 100) {
+                        Toast.makeText(getApplicationContext(), "Computer wins", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Your turn", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
             setHandlers();

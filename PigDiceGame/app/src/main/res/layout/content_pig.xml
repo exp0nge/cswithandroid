@@ -12,44 +12,55 @@
     tools:context="com.github.exp0nge.pigdicegame.PigActivity"
     tools:showIn="@layout/activity_pig">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/your_score"
-        android:paddingEnd="10dp"
-        android:id="@+id/your_score_text"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:layout_toEndOf="@+id/your_score_text"
-        android:id="@+id/userScore"
-        android:paddingRight="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/computer_score"
-        android:layout_toEndOf="@id/userScore"
-        android:id="@+id/computerTextView"
-        android:paddingRight="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/computerScoreTextView"
-        android:text="@string/computerScore"
-        android:layout_toEndOf="@id/computerTextView"/>
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textViewLayout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/your_score"
+            android:paddingEnd="10dp"
+            android:id="@+id/your_score_text"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_toEndOf="@+id/your_score_text"
+            android:id="@+id/userScore"
+            android:paddingRight="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/computer_score"
+            android:layout_toEndOf="@id/userScore"
+            android:id="@+id/computerTextView"
+            android:paddingRight="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/computerScoreTextView"
+            android:text="@string/computerScore"
+            android:layout_toEndOf="@id/computerTextView"/>
+    </RelativeLayout>
 
     <ImageView
-        android:layout_below="@+id/userScore"
+        android:layout_below="@+id/textViewLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/dice1"
         android:id="@+id/diceFace"
-        android:onClick="rollDice"/>
+        android:onClick="rollDice"
+        android:layout_centerHorizontal="true"/>
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/diceFace">
+        android:layout_below="@id/diceFace"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/buttonsLayout">
 
         <Button
             android:layout_width="wrap_content"
@@ -66,5 +77,24 @@
 
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonsLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your turn score:"
+            android:id="@+id/playerTurnScoreTextView"/>
+
+        <TextView
+            android:layout_below="@id/playerTurnScoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Computer turn score:"/>
+    </RelativeLayout>
+
 
 </RelativeLayout>
